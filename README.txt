@@ -2,31 +2,26 @@ The purpose of this repo is to parse a csv file line by line, determine if all f
 with completed fields into a new SQLite database, and insert the lines with incomplete data into a new .csv file. At the 
 end the program will then print the total number of lines, number of correct lines, and number of incorrect lines into a 
 .log file.
-
-
-*NOTE: I am using the free intellij idea software for this project.*
-
-Before using the app you need to make sure that you have a sqlite .jar file downloaded and know where the location is.
+*
+*
+*
+STEPS TO RUN
+If you don't already have it you will need a SQLite .jar file to run the program.
 For download you can visit: https://bitbucket.org/xerial/sqlite-jdbc/downloads/
-or:  https://sqlite.com/download.html
-
-To run the program first create a folder on your desktop named MS3.Inside that folder place the .csv file you want to run
-named ms3Interview. Then place the SQLite download into the folder also. The folder and file names are hard coded into the 
-program so if you wish to use different names you have to edit the names in the code. Once that is done, open the file, 
-make sure your paths are correct and run.
-*NOTE: You will have to change in the path from 'Dexter' to what the users name is on your computer.
-For class ms3int found on line 16
-for calss mint found on line 15
-for class createDatabase found on line 10*
-
+Download & extract zip files
+Download sqlite-jdbc-3.30.1.jar  *** Or whatever is the newest at the time
+Add the .jar file in your class path *Dragging and dropping the file into your project is a quick way to do this
+Create MS3 folder on desktop
+create bad.csv file inside MS3 folder
+Run ms3int.java with a java compiler
+At the end the program there will be a bad.csv file, input-filename.txt, and gooddata.db file in the MS3 folder
 
 *
 *
 *
 
-For my approach I decided to first locate the initial .csv file that the info is stored in.  The program will then read the
-file and determine if all fields are populated by checking to see if there are two consecutive delimiters (marked as ',,')
-or if there is a delimiter at the end of the line.  If neither cases are true then the program counts the line as good 
-and writes the line to a new database.  If one or both of the two cases are true then the program counts the line as bad
-and writes the line to a new .csv file.  At the end the app creates a .log file that prints the number total number of
-lines, total bad, and total good.
+For my design approach I decided to first locate and read the initial .csv file that the info is stored in(ms3Interview.csv). While reading the file the program will determine
+if all fields are populated by checking if there are two consecutive delimiters marked as (',,') or if there i a delimiter at the end of the line. If one or both of the two cases
+are true then the program will count the line as bad and will write the line to the bad.csv file. If neither case is true then the program will count the line as good and write
+the line to a new database (gooddata.db).  At the end of the file the app will create a .log file that will contain the total number of lines read, total bad lines, and total good
+lines.
